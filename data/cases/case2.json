@@ -1,0 +1,137 @@
+{
+ "case_id": "case2",
+ "title": "Коморбидный: ХБП С3б, язвенный анамнез, ангиоотёк на иАПФ",
+ "pattern": "comorbid",
+ "seed": 22,
+ "patient": {
+  "patient_id": "P-002",
+  "age": 76,
+  "sex": "F",
+  "weight_kg": 68,
+  "diagnosis": "ОКС без подъёма сегмента ST: инфаркт миокарда без подъёма сегмента ST",
+  "icd10": "I21.4",
+  "anamnesis": "Боль за грудиной и одышка при ходьбе 6 ч назад, в покое одышки нет. ЧСС 96 уд/мин, АД 148/86 мм рт. ст., Killip I, застоя в лёгких нет. ЭКГ: депрессия ST в I, aVL, V5-V6. ЭхоКГ при поступлении: ФВ ЛЖ 38%, ХСН NYHA II. Язвенная болезнь двенадцатиперстной кишки, желудочно-кишечное кровотечение 2 года назад. ХБП С3б. Ангионевротический отёк на эналаприл в 2019 г.",
+  "comorbidities": [
+   "ХБП С3б (рСКФ 35)",
+   "Язвенная болезнь ДПК, ЖКК в анамнезе (2024)",
+   "ХСН с низкой ФВ ЛЖ (38%)",
+   "Остеоартрит коленных суставов"
+  ],
+  "allergies": [
+   {
+    "substance": "эналаприл (ингибитор АПФ)",
+    "reaction": "ангионевротический отёк"
+   }
+  ],
+  "home_medications": [
+   "диклофенак 50 мг 2 раза/сут (боли в коленях)",
+   "омепразол 20 мг/сут",
+   "фуросемид 40 мг/сут"
+  ],
+  "grace_score": 166,
+  "very_high_risk": false,
+  "high_bleeding_risk": true,
+  "gi_bleeding_risk": true,
+  "diabetes": false,
+  "symptom_onset_h": 6,
+  "lvef": 38,
+  "killip": 1,
+  "hr": 96,
+  "sbp": 148,
+  "heart_failure": true,
+  "baseline_labs": [
+   {
+    "code": "troponin_hs",
+    "value": 95,
+    "t_h": 0
+   },
+   {
+    "code": "creatinine",
+    "value": 135,
+    "t_h": 0
+   },
+   {
+    "code": "hb",
+    "value": 118,
+    "t_h": 0
+   },
+   {
+    "code": "platelets",
+    "value": 208,
+    "t_h": 0
+   },
+   {
+    "code": "potassium",
+    "value": 4.9,
+    "t_h": 0
+   },
+   {
+    "code": "glucose",
+    "value": 6.1,
+    "t_h": 0
+   },
+   {
+    "code": "ldl",
+    "value": 2.9,
+    "t_h": 0
+   }
+  ]
+ },
+ "procedures": [
+  {
+   "procedure_id": "proc-1",
+   "t_h": 20,
+   "name": "Коронарография ± ЧКВ (лучевой доступ, изоосмолярный контраст)",
+   "contrast_ml": 100
+  }
+ ],
+ "consents": [
+  {
+   "t_h": 18,
+   "procedure_id": "proc-1",
+   "procedure": "Коронарография, ЧКВ"
+  }
+ ],
+ "external_orders": [
+  {
+   "item_id": "ext-1",
+   "kind": "drug",
+   "name": "Эналаприл",
+   "dose": "2,5 мг",
+   "route": "внутрь",
+   "frequency": "2 раза в сутки",
+   "start_h": 2,
+   "ordered_by": "дежурный терапевт приёмного отделения",
+   "rationale": "иАПФ при ОКС и ХСН по стандарту",
+   "citations": []
+  },
+  {
+   "item_id": "ext-2",
+   "kind": "drug",
+   "name": "Диклофенак",
+   "dose": "75 мг",
+   "route": "в/м",
+   "frequency": "при болях",
+   "start_h": 3,
+   "ordered_by": "дежурный терапевт приёмного отделения",
+   "rationale": "продолжение домашней терапии (боли в коленях)",
+   "citations": []
+  },
+  {
+   "item_id": "ext-3",
+   "kind": "drug",
+   "name": "Омепразол",
+   "dose": "20 мг",
+   "route": "внутрь",
+   "frequency": "1 раз в сутки",
+   "start_h": 3,
+   "ordered_by": "дежурный терапевт приёмного отделения",
+   "rationale": "продолжение домашней терапии",
+   "citations": []
+  }
+ ],
+ "expected_findings": [
+  "R5_allergy",
+  "R6_nsaid"
+ ]
+}

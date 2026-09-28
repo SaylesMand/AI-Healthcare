@@ -1,0 +1,113 @@
+{
+ "case_id": "case3",
+ "title": "Осложнение: контраст-индуцированное ОПП на 3-и сутки госпитализации",
+ "pattern": "reactive",
+ "seed": 33,
+ "patient": {
+  "patient_id": "P-003",
+  "age": 72,
+  "sex": "M",
+  "weight_kg": 82,
+  "diagnosis": "ОКС без подъёма сегмента ST: инфаркт миокарда без подъёма сегмента ST",
+  "icd10": "I21.4",
+  "anamnesis": "Ангинозный приступ 3 ч назад, купирован нитроглицерином, в приёмном отделении боли нет. СД 2 типа 12 лет (метформин). ЧСС 92 уд/мин, АД 168/94 мм рт. ст., Killip I. ЭКГ: депрессия ST 1 мм в V2-V5, без динамики при повторной регистрации. ЭхоКГ: ФВ ЛЖ 47%.",
+  "comorbidities": [
+   "Сахарный диабет 2 типа",
+   "ХБП С3а (рСКФ 48)",
+   "Артериальная гипертензия 3 ст."
+  ],
+  "allergies": [],
+  "home_medications": [
+   "метформин 1000 мг 2 раза/сут",
+   "лизиноприл 10 мг/сут",
+   "аторвастатин 20 мг/сут"
+  ],
+  "grace_score": 152,
+  "very_high_risk": false,
+  "high_bleeding_risk": false,
+  "gi_bleeding_risk": false,
+  "diabetes": true,
+  "symptom_onset_h": 3,
+  "lvef": 47,
+  "killip": 1,
+  "hr": 92,
+  "sbp": 168,
+  "heart_failure": false,
+  "baseline_labs": [
+   {
+    "code": "troponin_hs",
+    "value": 180,
+    "t_h": 0
+   },
+   {
+    "code": "creatinine",
+    "value": 135,
+    "t_h": 0
+   },
+   {
+    "code": "hb",
+    "value": 142,
+    "t_h": 0
+   },
+   {
+    "code": "platelets",
+    "value": 251,
+    "t_h": 0
+   },
+   {
+    "code": "potassium",
+    "value": 4.6,
+    "t_h": 0
+   },
+   {
+    "code": "glucose",
+    "value": 11.2,
+    "t_h": 0
+   },
+   {
+    "code": "ldl",
+    "value": 3.1,
+    "t_h": 0
+   }
+  ]
+ },
+ "procedures": [
+  {
+   "procedure_id": "proc-1",
+   "t_h": 14,
+   "name": "Коронарография + ЧКВ со стентированием ПНА",
+   "contrast_ml": 260
+  },
+  {
+   "procedure_id": "proc-2",
+   "t_h": 96,
+   "name": "Этапное ЧКВ огибающей и правой коронарной артерий",
+   "contrast_ml": 200
+  }
+ ],
+ "consents": [
+  {
+   "t_h": 15,
+   "procedure_id": "proc-1",
+   "procedure": "Коронарография, ЧКВ со стентированием"
+  }
+ ],
+ "external_orders": [
+  {
+   "item_id": "ext-1",
+   "kind": "drug",
+   "name": "Эноксапарин натрия",
+   "dose": "80 мг (1 мг/кг)",
+   "route": "п/к",
+   "frequency": "2 раза в сутки",
+   "start_h": 20,
+   "ordered_by": "палатный врач кардиологического отделения",
+   "rationale": "продолжение антикоагулянтной терапии после ЧКВ",
+   "citations": []
+  }
+ ],
+ "expected_findings": [
+  "R3_consent",
+  "R13_anticoagulant_after_pci"
+ ]
+}

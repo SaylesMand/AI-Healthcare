@@ -1,0 +1,87 @@
+{
+ "case_id": "case1",
+ "title": "Базовый: ИМбпST, типичное течение, первая линия по КР",
+ "pattern": "baseline",
+ "seed": 11,
+ "patient": {
+  "patient_id": "P-001",
+  "age": 56,
+  "sex": "M",
+  "weight_kg": 84,
+  "diagnosis": "ОКС без подъёма сегмента ST: инфаркт миокарда без подъёма сегмента ST",
+  "icd10": "I21.4",
+  "anamnesis": "Давящая боль за грудиной 40 мин в покое, 4 ч назад. Курит 20 лет. АГ 2 ст. На ЭКГ депрессия ST 1,5 мм в V4-V6. Гемодинамика стабильна: ЧСС 64 уд/мин, АД 132/84 мм рт. ст., Killip I. ЭхоКГ: ФВ ЛЖ 55%, гипокинез нижней стенки.",
+  "comorbidities": [
+   "Артериальная гипертензия 2 ст."
+  ],
+  "allergies": [],
+  "home_medications": [
+   "амлодипин 5 мг/сут"
+  ],
+  "grace_score": 127,
+  "very_high_risk": false,
+  "high_bleeding_risk": false,
+  "gi_bleeding_risk": false,
+  "diabetes": false,
+  "symptom_onset_h": 4,
+  "lvef": 55,
+  "killip": 1,
+  "hr": 64,
+  "sbp": 132,
+  "heart_failure": false,
+  "baseline_labs": [
+   {
+    "code": "troponin_hs",
+    "value": 120,
+    "t_h": 0
+   },
+   {
+    "code": "creatinine",
+    "value": 85,
+    "t_h": 0
+   },
+   {
+    "code": "hb",
+    "value": 148,
+    "t_h": 0
+   },
+   {
+    "code": "platelets",
+    "value": 232,
+    "t_h": 0
+   },
+   {
+    "code": "potassium",
+    "value": 4.3,
+    "t_h": 0
+   },
+   {
+    "code": "glucose",
+    "value": 5.8,
+    "t_h": 0
+   },
+   {
+    "code": "ldl",
+    "value": 3.6,
+    "t_h": 0
+   }
+  ]
+ },
+ "procedures": [
+  {
+   "procedure_id": "proc-1",
+   "t_h": 10,
+   "name": "Коронарография + ЧКВ со стентированием (лучевой доступ)",
+   "contrast_ml": 160
+  }
+ ],
+ "consents": [
+  {
+   "t_h": 8,
+   "procedure_id": "proc-1",
+   "procedure": "Коронарография, ЧКВ со стентированием"
+  }
+ ],
+ "external_orders": [],
+ "expected_findings": []
+}
