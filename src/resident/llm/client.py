@@ -139,6 +139,8 @@ class MistralProvider:
 OPENAI_COMPATIBLE = {
     "groq": ("https://api.groq.com/openai/v1", "groq_api_key", "GROQ_API_KEY"),
     "openrouter": ("https://openrouter.ai/api/v1", "openrouter_api_key", "OPENROUTER_API_KEY"),
+    "google": ("https://generativelanguage.googleapis.com/v1beta/openai", "google_api_key",
+               "GOOGLE_AI_STUDIO_API_KEY"),
 }
 
 
@@ -188,7 +190,7 @@ def drop_nulls(value):
 
 
 class OpenAICompatProvider:
-    """Провайдер с OpenAI-совместимым API (Groq, OpenRouter): JSON по схеме, рассуждения отключены."""
+    """Провайдер с OpenAI-совместимым API (Groq, OpenRouter, Google): JSON по схеме, рассуждения отключены."""
 
     def __init__(self, provider: str, model: str, max_tokens: int = 3000, max_wait_s: float = 900):
         base_url, key_attr, key_env = OPENAI_COMPATIBLE[provider]
@@ -206,6 +208,12 @@ class OpenAICompatProvider:
             if self.model.startswith("openai/gpt-oss"):
                 raise LLMError(f"{self.model}: режим рассуждений нельзя отключить")
             return "schema", {"reasoning_effort": "none"} if self.model.startswith("qwen/") else {}
+        if self.provider == "google":
+            # каталог Google не сообщает поддерживаемые параметры, поэтому уровень thinking берётся из роли:
+            # аудитору разрешён более высокий, потому что перепроверке важнее качество
+            auditor = parse_model_spec(settings.auditor_model) == ("google", self.model)
+            level = settings.auditor_thinking_level if auditor else settings.llm_thinking_level
+            return "schema", {"reasoning_effort": level}
         resp = requests.get(f"{self.base_url}/models", timeout=60)
         resp.raise_for_status()
         meta = next((m for m in resp.json()["data"] if m["id"] == self.model), None)
@@ -244,6 +252,8 @@ class OpenAICompatProvider:
             "messages": [{"role": "system", "content": system}, {"role": "user", "content": user}],
             **self.no_thinking,
         }
+        if self.provider == "google":
+            body.pop("seed")  # OpenAI-совместимый API Google не знает этого поля и отвечает 400
         if self.output_mode == "schema":
             body["response_format"] = {"type": "json_schema", "json_schema": {
                 "name": schema.__name__, "strict": True, "schema": json_schema}}

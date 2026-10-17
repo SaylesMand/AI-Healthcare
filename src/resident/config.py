@@ -27,9 +27,13 @@ class Settings:
     mistral_api_key: str = os.getenv("MISTRAL_API_KEY", "")
     groq_api_key: str = os.getenv("GROQ_API_KEY", "")
     openrouter_api_key: str = os.getenv("OPENROUTER_API_KEY", "")
-    # "провайдер:модель", провайдер - groq | openrouter | mistral
+    google_api_key: str = os.getenv("GOOGLE_AI_STUDIO_API_KEY", "")
+    # "провайдер:модель", провайдер - groq | openrouter | mistral | google
     llm_model: str = os.getenv("LLM_MODEL", "groq:qwen/qwen3.8-27b")  # планировщик и пересмотр плана
     auditor_model: str = os.getenv("AUDITOR_MODEL", "openrouter:nvidia/nemotron-3-ultra-550b-a55b:free")
+    # уровень thinking моделей Google по ролям: minimal | low | medium | high
+    llm_thinking_level: str = os.getenv("LLM_THINKING_LEVEL", "minimal")
+    auditor_thinking_level: str = os.getenv("AUDITOR_THINKING_LEVEL", "minimal")
     llm_mode: str = os.getenv("LLM_MODE", "replay")  # live | replay
     retriever: str = os.getenv("RETRIEVER", "hybrid")  # bm25 | dense | hybrid
     embed_model: str = os.getenv("EMBED_MODEL", "deepvk/USER2-base")
